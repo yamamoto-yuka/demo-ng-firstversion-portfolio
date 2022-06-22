@@ -26,13 +26,13 @@ export class HomeComponent implements OnInit {
       container,
       1.5,
       { height: '0%' },
-      { height: '60%', ease: Power2.easeInOut }
+      { height: '70%', ease: Power2.easeInOut }
     )
       .fromTo(
         container,
         1.7,
         { width: '0%' },
-        { width: '100%', ease: Power2.easeInOut }
+        { width: '90%', ease: Power2.easeInOut }
       )
       .fromTo(logo, 0.5, { opacity: 0, x: 30 }, { opacity: 1, x: 0 }, '-=0.5')
       .fromTo(
@@ -66,12 +66,16 @@ export class HomeComponent implements OnInit {
       )
       .fromTo(
         desc,
-        1,
-        { opcity: 1 },
-        { opacity: 0, ease: Power2.easeOut },
-        '-=1.7'
+        1.6,
+        { opacity:1, left:'60%' },
+        { opacity:0, left:'-10%', display:"none", ease: Power2.easeInOut },
+        '-=1.8'
       );
   }
+
+
+
+  
 
   ngOnInit(): void {
     const container = document.querySelector('#container') as HTMLCanvasElement;
@@ -88,7 +92,7 @@ export class HomeComponent implements OnInit {
       1,
       15000
     );
-    camera.position.z = 250;
+    // camera.position.z = 10;
     const renderer = new THREE.WebGL1Renderer({
       canvas: myCanvas,
       antialias: true,
@@ -113,7 +117,7 @@ export class HomeComponent implements OnInit {
       );
 
       const material = new THREE.PointsMaterial({
-        size: 8,
+        size: 6,
         color: 0xffffff,
       });
 
@@ -121,18 +125,20 @@ export class HomeComponent implements OnInit {
       scene.add(stars);
     }
 
-    const directionalLight = new THREE.DirectionalLight(0xfffffff, 1.9);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
+    // const directionalLight = new THREE.AmbientLight(0xfffffff, 1.9);
+    // directionalLight.position.set(10, 1, 1);
+    // scene.add(directionalLight);
+    // const light = new THREE.HemisphereLight(0x888888, 0x0000FF, 1.9);
+    // scene.add(light);
 
-    const pointLight = new THREE.PointLight(0xfffffff, 2, 1000);
-    scene.add(pointLight);
 
     controls = new FlyControls(camera, renderer.domElement);
     controls.movementSpeed = 1000;
     controls.rollSpeed = Math.PI / 50;
 
     animate();
+
+
 
     function animate() {
       requestAnimationFrame(animate);
@@ -141,6 +147,12 @@ export class HomeComponent implements OnInit {
       renderer.render(scene, camera);
     }
 
+    
+
     this.anime();
+
+
+ 
+    
   }
 }

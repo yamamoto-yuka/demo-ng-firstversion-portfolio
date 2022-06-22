@@ -1,56 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+@import "../../styles.scss";
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Sora", sans-serif;
-}
 
-.headline{
-  align-items: center;
-  justify-content: space-evenly;
+.headline {
+  @include centerCenter($j: flex-end);
+  flex-direction: column;
   min-height: 10vh;
   text-align: center;
   color: white;
-  background-color: black;
-  #logo{
+  #logo {
     font-size: 1rem;
   }
-  p{
+  p {
     font-size: 12px;
   }
 }
 
-.slider{
+.slider {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: black;
-  z-index: -1;  
+  z-index: -1;
 }
 
-section{
+section {
   width: 100%;
   height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include centerCenter();
 }
 
-.hero{
+.hero {
   height: 60%;
   width: 100%;
   position: relative;
-  img{
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  .desc {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    color: white;
+    font-size: 50px;
+    transform: translateY(-70%);
+    z-index: 5;
+  }
 }
-.hero:after{
+.hero:after {
   content: "";
   position: absolute;
   top: 0;
@@ -61,23 +61,35 @@ section{
   opacity: 0.4;
 }
 
-.nav{
+.nav {
   width: 100%;
   position: absolute;
-  top: 60%;
+  top: 50%;
   font-size: 60px;
-  transform: translateY(-60%);
+  transform: translateY(-50%);
   z-index: 5;
-  ul{
+  ul {
     width: 100%;
-    justify-content: space-evenly;
-    text-align: center;
-    li a{
+    @include centerCenter($j: space-around);
+    list-style: none;
+    a {
       color: white;
       text-decoration: none;
     }
-    li a:hover{
+    a:hover {
       color: aqua;
     }
+  }
+}
+
+.contact {
+  @include centerCenter();
+  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    color: aqua;
   }
 }

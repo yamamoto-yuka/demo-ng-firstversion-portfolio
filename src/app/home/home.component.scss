@@ -77,7 +77,6 @@ section {
   ul {
     width: 100%;
     @include centerCenter($j: space-evenly);
-    list-style: none;
     a {
       @include cta();
     }

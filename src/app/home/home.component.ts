@@ -74,15 +74,11 @@ export class HomeComponent implements OnInit {
       .fromTo(
         desc,
         1.6,
-        { opacity:1, left:'30%' },
-        { opacity:0, left:'0%', display:"none", ease: Power2.easeInOut },
+        { opacity: 1, left: '30%' },
+        { opacity: 0, left: '0%', display: 'none', ease: Power2.easeInOut },
         '-=1.8'
       );
   }
-
-
-
-  
 
   ngOnInit(): void {
     const container = document.querySelector('#container') as HTMLCanvasElement;
@@ -99,7 +95,7 @@ export class HomeComponent implements OnInit {
       1,
       15000
     );
-    // camera.position.z = 10;
+  
     const renderer = new THREE.WebGL1Renderer({
       canvas: myCanvas,
       antialias: true,
@@ -131,27 +127,17 @@ export class HomeComponent implements OnInit {
       const stars = new THREE.Points(geometry, material);
       scene.add(stars);
     }
-
-    // const directionalLight = new THREE.AmbientLight(0xfffffff, 1.9);
-    // directionalLight.position.set(10, 1, 1);
-    // scene.add(directionalLight);
-    // const light = new THREE.HemisphereLight(0x888888, 0x0000FF, 1.9);
-    // scene.add(light);
-
-
     controls = new FlyControls(camera, renderer.domElement);
-    controls.movementSpeed = 1000;
+    controls.movementSpeed = 1800;
     controls.rollSpeed = Math.PI / 50;
 
     animate();
 
-
-    function onWindowResize(){
+    function onWindowResize() {
       renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     }
-    
 
     function animate() {
       requestAnimationFrame(animate);
@@ -160,13 +146,7 @@ export class HomeComponent implements OnInit {
       renderer.render(scene, camera);
     }
 
-    
-    
-    window.addEventListener("resize", onWindowResize);
+    window.addEventListener('resize', onWindowResize);
     this.anime();
-
-
- 
-    
   }
 }

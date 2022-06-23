@@ -6,13 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SpaceComponent } from './space/space.component';
+import { HeaderComponent } from './header/header.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SpaceComponent
+    SpaceComponent,
+    HeaderComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,

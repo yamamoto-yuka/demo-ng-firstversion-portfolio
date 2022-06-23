@@ -1,0 +1,10 @@
+@import "../../styles.scss";
+
+.nav-items {
+  a {
+    @include catHoverActive();
+    @include catAfterBefore();
+    @include catHoverAfterBefore($width: 100%);
+    @include catHoverBefore($width: 100%);
+  }
+}

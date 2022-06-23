@@ -146,6 +146,12 @@ export class HomeComponent implements OnInit {
     animate();
 
 
+    function onWindowResize(){
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    
 
     function animate() {
       requestAnimationFrame(animate);
@@ -155,7 +161,8 @@ export class HomeComponent implements OnInit {
     }
 
     
-
+    
+    window.addEventListener("resize", onWindowResize);
     this.anime();
 
 

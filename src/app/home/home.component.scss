@@ -1,14 +1,13 @@
 @import "../../styles.scss";
 
 .headline {
-  @include centerCenter($j: space-evenly);
+  @include centerCenter($j: space-around);
   flex-direction: column;
   min-height: 20vh;
   text-align: center;
   color: #0d0d0d;
   #logo {
     height: 3rem;
-
     svg {
       height: 100%;
       width: 100%;
@@ -18,7 +17,6 @@
       transition: all 380ms ease-in-out;
     }
   }
-
   p {
     padding-top: 5px;
     font-size: 12px;
@@ -61,19 +59,18 @@ section {
 .desc {
   position: absolute;
   top: 60%;
-  left: 60%;
+  left: 30%;
   color: #0d0d0d;
-  font-size: 50px;
-  transform: translate(-60%, -60%);
+  font-size: 40px;
+  transform: translate(-30%, -60%);
   z-index: 10;
-  opacity: 0;
 }
 
 .nav {
   width: 100%;
   position: absolute;
   top: 50%;
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
   transform: translateY(-60%);
   z-index: 5;
@@ -102,6 +99,10 @@ section {
   }
 }
 
+.projects {
+  padding-bottom: 3rem;
+}
+
 .contact {
   @include centerCenter();
   a {
@@ -127,4 +128,36 @@ section {
 small {
   margin-top: 1rem;
   @include centerCenter();
+}
+
+@media screen and (min-width: 448px) {
+  .projects {
+    padding-bottom: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .desc {
+    font-size: 50px;
+  }
+  .nav {
+    top: 45%;
+    font-size: 45px;
+    transform: translateY(-45%);
+  }
+  .projects {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .desc {
+    font-size: 60px;
+  }
+  .nav {
+    font-size: 60px;
+  }
+  .projects {
+    padding-bottom: 0;
+  }
 }

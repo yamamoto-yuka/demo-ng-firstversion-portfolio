@@ -74,8 +74,8 @@ export class HomeComponent implements OnInit {
       .fromTo(
         desc,
         1.6,
-        { opacity:1, left:'60%' },
-        { opacity:0, left:'-10%', display:"none", ease: Power2.easeInOut },
+        { opacity:1, left:'30%' },
+        { opacity:0, left:'0%', display:"none", ease: Power2.easeInOut },
         '-=1.8'
       );
   }

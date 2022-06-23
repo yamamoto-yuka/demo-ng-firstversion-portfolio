@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
     const container = document.querySelector('#container');
     const projects = document.querySelector('.projects');
     const about = document.querySelector('.about');
-    const slider = document.querySelector('.slider');
     const contact = document.querySelector('.contact');
+    const footer = document.querySelector('small');
     const desc = document.querySelector('.desc');
     const tl = gsap.timeline();
 
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
       container,
       1.5,
       { height: '0%' },
-      { height: '70%', ease: Power2.easeInOut }
+      { height: '80%', ease: Power2.easeInOut }
     )
       .fromTo(
         container,
@@ -59,6 +59,13 @@ export class HomeComponent implements OnInit {
       )
       .fromTo(
         contact,
+        0.5,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        footer,
         0.5,
         { opacity: 0, x: -30 },
         { opacity: 1, x: 0 },

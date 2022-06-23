@@ -30,16 +30,16 @@
   width: 7%;
 }
 
-@mixin catHoverAfterBefore($border-color: white) {
+@mixin catHoverAfterBefore($border-color: white,  $width:70% ) {
   border-color: $border-color;
   transition: width 300ms ease-in-out;
-  width: 100%;
+  width: $width;
 }
 
-@mixin catHoverBefore() {
+@mixin catHoverBefore($width:70%) {
   bottom: auto;
   top: 0;
-  width: 100%;
+  width: $width;
 }
 
 // Base

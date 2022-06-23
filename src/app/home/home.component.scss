@@ -13,7 +13,12 @@
       height: 100%;
       width: 100%;
     }
+    svg:hover{
+      transform: scaleY(1.2);
+      transition: all 380ms ease-in-out;
+    }
   }
+
   p {
     padding-top: 5px;
     font-size: 12px;
@@ -43,6 +48,7 @@ section {
   width: 90%;
   position: relative;
   overflow: hidden;
+  box-shadow: 0px 6px 14px 0px rgb(0 0 0 / 42%);
   #myCanvas {
     position: absolute;
     top: 0;
@@ -73,7 +79,7 @@ section {
   z-index: 5;
   ul {
     width: 100%;
-    @include centerCenter($j: space-around);
+    @include centerCenter($j: space-evenly);
     list-style: none;
     a {
      @include cta();

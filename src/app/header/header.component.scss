@@ -124,6 +124,16 @@ nav.active {
   }
 }
 
+// For individual page
+.activePage{
+  font-weight: 900 !important;
+}
+.activePage::after,
+.activePage::before{
+  width: 100% !important;
+}
+
+
 @media screen and (min-width: 1024px) {
   nav {
     position: static;

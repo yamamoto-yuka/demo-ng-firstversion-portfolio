@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { gsap } from 'gsap';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
@@ -9,98 +14,41 @@ import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  // For Timeline Animation
+  @ViewChild('headline', { static: true }) headline: ElementRef<HTMLDivElement>;
+  @ViewChild('logo', { static: true }) logo: ElementRef<HTMLDivElement>;
+  @ViewChild('container', { static: true }) container: ElementRef<HTMLDivElement>;
+  @ViewChild('projects', { static: true }) projects: ElementRef<HTMLDivElement>;
+  @ViewChild('about', { static: true }) about: ElementRef<HTMLDivElement>;
+  @ViewChild('contact', { static: true }) contact: ElementRef<HTMLDivElement>;
+  @ViewChild('footer', { static: true }) footer: ElementRef<HTMLDivElement>;
+  @ViewChild('desc', { static: true }) desc: ElementRef<HTMLDivElement>;
+
+  // For 3D Bg
+  @ViewChild('myCanvas', {static:true}) myCanvas: ElementRef<HTMLDivElement>;
+
+
   constructor() {}
 
-  anime() {
-    const headline = document.querySelector('.headline');
-    const logo = document.querySelector('#logo');
-    const container = document.querySelector('#container');
-    const projects = document.querySelector('.projects');
-    const about = document.querySelector('.about');
-    const contact = document.querySelector('.contact');
-    const footer = document.querySelector('small');
-    const desc = document.querySelector('.desc');
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      container,
-      1.5,
-      { height: '0%' },
-      { height: '80%', ease: Power2.easeInOut }
-    )
-      .fromTo(
-        container,
-        1.7,
-        { width: '0%' },
-        { width: '90%', ease: Power2.easeInOut }
-      )
-      .fromTo(logo, 0.5, { opacity: 0, x: 30 }, { opacity: 1, x: 0 }, '-=0.5')
-      .fromTo(
-        projects,
-        0.5,
-        { opacity: 0, x: 30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(about, 0.5, { opacity: 0, x: 0 }, { opacity: 1, x: 0 }, '-=0.5')
-      .fromTo(
-        projects,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        headline,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        contact,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        footer,
-        0.5,
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0 },
-        '-=0.5'
-      )
-      .fromTo(
-        desc,
-        1.6,
-        { opacity: 1, left: '30%' },
-        { opacity: 0, left: '0%', display: 'none', ease: Power2.easeInOut },
-        '-=1.8'
-      );
-  }
-
   ngOnInit(): void {
-    const container = document.querySelector('#container') as HTMLCanvasElement;
-    const myCanvas = document.querySelector('#myCanvas') as HTMLCanvasElement;
     const clock = new THREE.Clock();
     let controls: FlyControls;
 
-    // SCENE
+    
     const scene = new THREE.Scene();
     // CAMERA
     const camera = new THREE.PerspectiveCamera(
       50,
-      container.clientWidth / container.clientHeight,
+      this.container.nativeElement.clientWidth / this.container.nativeElement.clientHeight,
       1,
       15000
     );
-  
+
     const renderer = new THREE.WebGL1Renderer({
-      canvas: myCanvas,
+      canvas: this.myCanvas.nativeElement,
       antialias: true,
     });
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(this.container.nativeElement.clientWidth, this.container.nativeElement.clientHeight);
 
     createStarField();
 
@@ -147,6 +95,79 @@ export class HomeComponent implements OnInit {
     }
 
     window.addEventListener('resize', onWindowResize);
-    this.anime();
+    this.timelineAnimation();
+  }
+
+  // TIME LINE ANIMATION
+  timelineAnimation() {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      this.container.nativeElement,
+      1.5,
+      { height: '0%' },
+      { height: '80%', ease: Power2.easeInOut }
+    )
+      .fromTo(
+        this.container.nativeElement,
+        1.7,
+        { width: '0%' },
+        { width: '90%', ease: Power2.easeInOut }
+      )
+      .fromTo(
+        this.logo.nativeElement,
+        0.5,
+        { opacity: 0, x: 30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.projects.nativeElement,
+        0.5,
+        { opacity: 0, x: 30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.about.nativeElement,
+        0.5,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.projects.nativeElement,
+        0.5,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.headline.nativeElement,
+        0.5,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.contact.nativeElement,
+        0.5,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.footer.nativeElement,
+        0.5,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0 },
+        '-=0.5'
+      )
+      .fromTo(
+        this.desc.nativeElement,
+        1.6,
+        { opacity: 1, left: '30%' },
+        { opacity: 0, left: '0%', display: 'none', ease: Power2.easeInOut },
+        '-=1.8'
+      );
   }
 }

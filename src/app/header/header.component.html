@@ -65,9 +65,9 @@
     </h1>
     <nav>
       <ul class="nav-items">
-        <li class="nav-item"  [class.active]=""><a href="">PROJECTS</a></li>
-        <li class="nav-item"><a href="">ABOUT</a></li>
-        <li class="nav-item"><a href="">CONTACT</a></li>
+        <li class="nav-item"><a [class.activePage]="projectsActive" href="">PROJECTS</a></li>
+        <li class="nav-item"><a [class.activePage]="aboutActive" href="">ABOUT</a></li>
+        <li class="nav-item"><a [class.activePage]="contactActive" href="">CONTACT</a></li>
       </ul>
     </nav>
     <button class="hamburger">

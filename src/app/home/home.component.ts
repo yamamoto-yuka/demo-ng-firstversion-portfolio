@@ -192,6 +192,12 @@ export class HomeComponent implements OnInit {
   wideScreen(){
     const tl = gsap.timeline();
     tl.fromTo(
+      this.contact.nativeElement,
+      1,
+      { opacity:1 },
+      { opacity:0}
+    )
+    .fromTo(
       this.container.nativeElement,
       1,
       { position: 'relative', height:'70%' },
@@ -213,7 +219,8 @@ export class HomeComponent implements OnInit {
      3.5,
      { opacity:1, width:'0%' },
      {  width: '100%', ease: Power2.easeIn },
-    ).fromTo(
+    )
+    .fromTo(
       this.projects.nativeElement,
       3.5,
       { opacity:1},

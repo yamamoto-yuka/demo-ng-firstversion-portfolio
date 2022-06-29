@@ -7,6 +7,8 @@ import {
 import { gsap } from 'gsap';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
+import { Router } from '@angular/router';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -23,12 +25,13 @@ export class HomeComponent implements OnInit {
   @ViewChild('contact', { static: true }) contact: ElementRef<HTMLDivElement>;
   @ViewChild('footer', { static: true }) footer: ElementRef<HTMLDivElement>;
   @ViewChild('desc', { static: true }) desc: ElementRef<HTMLDivElement>;
+  @ViewChild('slider', {static:true}) slider:ElementRef<HTMLDivElement>;
 
   // For 3D Bg
   @ViewChild('myCanvas', {static:true}) myCanvas: ElementRef<HTMLDivElement>;
 
 
-  constructor() {}
+  constructor(private router:Router) {}
 
   ngOnInit(): void {
     const clock = new THREE.Clock();
@@ -77,7 +80,8 @@ export class HomeComponent implements OnInit {
     }
     controls = new FlyControls(camera, renderer.domElement);
     controls.movementSpeed = 1800;
-    controls.rollSpeed = Math.PI / 50;
+    controls.rollSpeed = Math.PI / 30;
+
 
     animate();
 
@@ -96,6 +100,20 @@ export class HomeComponent implements OnInit {
 
     window.addEventListener('resize', onWindowResize);
     this.timelineAnimation();
+  
+   let navigateToAbout = () =>{
+      this.router.navigate(['about']);
+    }
+
+    this.about.nativeElement.addEventListener('click', ()=>{
+        this.wideScreen();
+        onWindowResize();
+        this.wipeTransitionLeft();
+        setTimeout(navigateToAbout, 4500);
+    })
+
+
+
   }
 
   // TIME LINE ANIMATION
@@ -170,4 +188,47 @@ export class HomeComponent implements OnInit {
         '-=1.8'
       );
   }
+
+  wideScreen(){
+    const tl = gsap.timeline();
+    tl.fromTo(
+      this.container.nativeElement,
+      1,
+      { position: 'relative', height:'70%' },
+      { position: 'absolute', top:0, height: '100vh',  ease: Power2.easeOut }
+    )
+      .fromTo(
+        this.container.nativeElement,
+       1,
+       { position: 'relative', widows:'90%' },
+        { position: 'absolute', width: '100%', ease: Power2.easeOut }
+      )       
+     
+  }
+
+  wipeTransitionLeft(){
+    const tl = gsap.timeline();
+    tl.fromTo(
+      this.slider.nativeElement,
+     3.5,
+     { opacity:1, width:'0%' },
+     {  width: '100%', ease: Power2.easeIn },
+    ).fromTo(
+      this.projects.nativeElement,
+      3.5,
+      { opacity:1},
+      { opacity:0, ease: Power2.easeInOut},
+      '-=3.5'
+    )
+    .fromTo(
+      this.about.nativeElement,
+      3.5,
+      { opacity:1},
+      { opacity:0, ease: Power2.easeOut
+      },
+      '-=1'
+    )
+  }
 }
+
+

@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { SpaceComponent } from './space/space.component';
 import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ProjectsComponent } from './projects/projects.component';
     HomeComponent,
     SpaceComponent,
     HeaderComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

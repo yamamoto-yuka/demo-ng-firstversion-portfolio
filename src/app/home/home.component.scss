@@ -18,16 +18,16 @@
     }
   }
   p {
+    font-family: Helvetica, sans-serif;
     padding-top: 5px;
-    font-size: 12px;
+    font-size: 1rem;
+    font-weight: 200;
   }
 }
 
 .slider {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 0%;
   height: 100%;
   background: black;
   opacity: 0;

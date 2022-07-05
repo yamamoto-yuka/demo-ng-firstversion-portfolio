@@ -105,12 +105,23 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['about']);
     }
 
+    let navigateToProjects = () =>{
+      this.router.navigate(['projects']);
+    }
+
     this.about.nativeElement.addEventListener('click', ()=>{
         this.wideScreen();
         onWindowResize();
         this.wipeTransitionLeft();
         setTimeout(navigateToAbout, 4500);
     })
+
+    this.projects.nativeElement.addEventListener('click', ()=>{
+      this.wideScreen();
+      onWindowResize();
+      this.wipeTransitionRight();
+      setTimeout(navigateToProjects, 4500);
+  })
 
 
 
@@ -217,7 +228,7 @@ export class HomeComponent implements OnInit {
     tl.fromTo(
       this.slider.nativeElement,
      3.5,
-     { opacity:1, width:'0%' },
+     { opacity:1, left:0, width:'0%' },
      {  width: '100%', ease: Power2.easeIn },
     )
     .fromTo(
@@ -229,6 +240,32 @@ export class HomeComponent implements OnInit {
     )
     .fromTo(
       this.about.nativeElement,
+      3.5,
+      { opacity:1},
+      { opacity:0, ease: Power2.easeOut
+      },
+      '-=1'
+    )
+  }
+
+
+  wipeTransitionRight(){
+    const tl = gsap.timeline();
+    tl.fromTo(
+      this.slider.nativeElement,
+     3.5,
+     { opacity:1, right:0, width:'0%'},
+     { width: '100%', ease: Power2.easeIn },
+    )
+    .fromTo(
+      this.about.nativeElement,
+      3.5,
+      { opacity:1},
+      { opacity:0, ease: Power2.easeInOut},
+      '-=3.5'
+    )
+    .fromTo(
+      this.projects.nativeElement,
       3.5,
       { opacity:1},
       { opacity:0, ease: Power2.easeOut

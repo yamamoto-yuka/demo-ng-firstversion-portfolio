@@ -1,49 +1,101 @@
 @import "../../styles.scss";
 
+$black: #0d0d0d;
+$bg: #d9d9d9;
+
+
+.homeContainer {
+  padding: 2rem 1.5rem;
+  background: $bg;
+}
+
+.frame {
+  position: relative;
+}
+.frame::before,
+.frame::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  display: inline-block;
+}
+.frame::before {
+  border-left: solid 0.75px $black;
+  border-top: solid 0.75px $black;
+  top: 0;
+  left: 0;
+}
+.frame::after {
+  border-right: solid 0.75px $black;
+  border-bottom: solid 0.75px $black;
+  bottom: 0;
+  right: 0;
+}
+
+.language {
+  position: absolute;
+  top: 0;
+  right: 0;
+  button {
+    border: none;
+    background-color: transparent;
+  }
+  button:last-child {
+    padding-left: 1rem;
+  }
+  button:hover,
+  button:active {
+    @include catHoverActive();
+  }
+  button:before,
+  button:after {
+    @include catAfterBefore($border-color: $black);
+  }
+  button:hover:before,
+  button:hover:after {
+    @include catHoverAfterBefore($border-color: $black, $width: 100%);
+  }
+  button:hover:before {
+    @include catHoverBefore($width: 100%);
+  }
+}
+
 .headline {
-  @include centerCenter($j: space-around);
+  @include centerCenter($j: space-between);
   flex-direction: column;
-  min-height: 20vh;
-  text-align: center;
-  color: #0d0d0d;
+  min-height: 45vh;
+  padding: 2rem 0;
+  color: $black;
   #logo {
-    height: 3rem;
-    svg {
+    width: 35%;
+    img {
       height: 100%;
       width: 100%;
     }
-    svg:hover {
-      transform: scaleY(1.2);
-      transition: all 380ms ease-in-out;
+  }
+  .bio {
+    width: 70%;
+    padding-top: 5rem;
+    h1 {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .bio-summary {
+      padding-top: 2rem;
+      p {
+        font-size: 0.8rem;
+        font-weight: 200;
+      }
     }
   }
-  p {
-    font-family: Helvetica, sans-serif;
-    padding-top: 5px;
-    font-size: 1rem;
-    font-weight: 200;
-  }
 }
 
-.slider {
-  position: absolute;
-  top: 0;
+main{
+  height: 60vh;
+.Canvascontainer {
   height: 100%;
-  background: black;
-  opacity: 0;
-}
-
-section {
   width: 100%;
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Canvascontainer{
-  height: 70%;
-  width: 90%;
   position: relative;
   overflow: hidden;
   #myCanvas {
@@ -54,33 +106,22 @@ section {
     height: 100%;
     box-shadow: 0px 6px 14px 0px rgb(0 0 0 / 42%);
   }
-}
-
-.desc {
-  position: absolute;
-  top: 60%;
-  left: 30%;
-  color: #0d0d0d;
-  font-size: 40px;
-  transform: translate(-30%, -60%);
-  z-index: 10;
-  // display: none;
-}
-
-.nav {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  font-size: 40px;
-  text-align: center;
-  transform: translateY(-60%);
-  z-index: 5;
   ul {
-    width: 100%;
-    @include centerCenter($j: space-evenly);
     cursor: pointer;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    li:first-child{
+      padding-bottom: 3rem;
+    }
     a {
-      @include cta();
+      font-family: "Sora", sans-serif;
+      color: #fff;
     }
     a:hover,
     a:active {
@@ -99,55 +140,82 @@ section {
     }
   }
 }
-
-.projects {
-  padding-bottom: 3rem;
 }
 
-.contact {
-  @include centerCenter();
-  a {
-    @include cta($color: #0d0d0d);
-  }
-  a:hover,
-  a:active {
-    @include catHoverActive();
-  }
-  a:after,
-  a:before {
-    @include catAfterBefore($border-color: #0d0d0d);
-  }
-  a:hover:after,
-  a:hover:before {
-    @include catHoverAfterBefore($border-color: #0d0d0d, $width: 100%);
-  }
-  a:hover:before {
-    @include catHoverBefore($width: 100%);
+.desc {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  color: $black;
+  font-size: 40px;
+  transform: translate(-30%, -60%);
+  z-index: 10;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: $black;
+  opacity: 0;
+}
+
+footer {
+  padding: 2rem 0;
+  .contact {
+    @include centerCenter();
+    padding: 7rem 0 1rem 0;
+    li {
+      margin: 0 1rem 1rem 0;
+      a {
+        color: $black;
+      }
+      a:hover,
+      a:active {
+        @include catHoverActive();
+      }
+      a:after,
+      a:before {
+        @include catAfterBefore($border-color: $black);
+      }
+      a:hover:after,
+      a:hover:before {
+        @include catHoverAfterBefore($border-color: $black, $width: 100%);
+      }
+      a:hover:before {
+        @include catHoverBefore($width: 100%);
+      }
+    }
+    li:last-child {
+      margin-right: 0;
+    }
   }
 }
 
 small {
-  margin-top: 1rem;
+  margin-top: 2rem;
   @include centerCenter();
 }
 
-@media screen and (min-width: 448px) {
-  .projects {
-    padding-bottom: 3.5rem;
-  }
-}
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+  .headline {
+    min-height: 40vh;
+    #logo {
+      width: 25%;
+    }
+  }
   .desc {
     font-size: 50px;
   }
-  .nav {
-    top: 45%;
-    font-size: 45px;
-    transform: translateY(-45%);
+
+  .Canvascontainer {
+    height: 50vh;
   }
-  .projects {
-    padding-bottom: 0;
+
+  footer {
+    .contact {
+      padding: 4rem 0 1rem 0;
+    }
   }
 }
 

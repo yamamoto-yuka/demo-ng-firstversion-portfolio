@@ -11,14 +11,11 @@ header {
 }
 
 #logo {
-  height: 3rem;
-  svg {
+  width: 30%;
+  img{
     height: 100%;
     width: 100%;
-  }
-  svg:hover {
-    transform: scaleY(1.2);
-    transition: all 380ms ease-in-out;
+    object-fit: contain;
   }
 }
 

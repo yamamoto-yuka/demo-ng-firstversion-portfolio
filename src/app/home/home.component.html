@@ -1,70 +1,56 @@
-<header>
-  <div #headline class="headline">
-    <div #logo id="logo">
-      <a routerLink="">
-        <svg viewBox="0 0 128.97 50.45">
-          <path
-            d="M12.79,.07L7.98,9.05v5.4h-3v-5.4L0,.07H3.54l2.99,6.26L9.38,.07h3.4Z"
-          />
-          <path
-            d="M22.46,8.91V.07h3.05V8.91c0,1.53-.24,2.72-.71,3.57-.88,1.56-2.57,2.34-5.06,2.34s-4.18-.78-5.07-2.34c-.47-.85-.71-2.04-.71-3.57V.07h3.05V8.91c0,.99,.12,1.71,.35,2.17,.36,.81,1.16,1.21,2.38,1.21s2.01-.4,2.37-1.21c.23-.46,.35-1.18,.35-2.17Z"
-          />
-          <path
-            d="M41.21,14.37l-3.86,.05-4.52-6.23-1.42,1.49,.06,4.81-2.96,.04-.18-14.38,2.96-.04,.07,5.92L36.85,.05l3.88-.05-5.82,5.99,6.3,8.38Z"
-          />
-          <path
-            d="M40.73,18.47l-4.81,8.97v5.4h-3v-5.4l-4.98-8.97h3.54l2.99,6.26,2.86-6.26h3.4Z"
-          />
-          <path
-            d="M31.15,49.9h-2.8v-14.38h4.37l2.61,11.31,2.59-11.31h4.32v14.38h-2.8v-9.73c0-.28,0-.67,0-1.18s0-.89,0-1.17l-2.72,12.07h-2.92l-2.7-12.07c0,.27,0,.66,0,1.17s0,.9,0,1.18v9.73Z"
-          />
-          <path
-            d="M75.54,49.9h-2.8v-14.38h4.37l2.61,11.31,2.59-11.31h4.32v14.38h-2.8v-9.73c0-.28,0-.67,0-1.18s0-.89,0-1.17l-2.72,12.07h-2.92l-2.7-12.07c0,.27,0,.66,0,1.17s0,.9,0,1.18v9.73Z"
-          />
-          <path
-            d="M95.8,50.45c-2.06,0-3.63-.56-4.71-1.68-1.46-1.37-2.19-3.35-2.19-5.93s.73-4.61,2.19-5.93c1.09-1.12,2.66-1.68,4.71-1.68s3.63,.56,4.71,1.68c1.45,1.32,2.18,3.3,2.18,5.93s-.73,4.56-2.18,5.93c-1.09,1.12-2.66,1.68-4.71,1.68Zm2.84-3.86c.7-.88,1.04-2.13,1.04-3.75s-.35-2.86-1.05-3.74-1.64-1.32-2.83-1.32-2.14,.44-2.85,1.32-1.06,2.13-1.06,3.75,.35,2.87,1.06,3.75,1.66,1.32,2.85,1.32,2.14-.44,2.84-1.32Z"
-          />
-          <path
-            d="M114.87,35.52v2.55h-4.3v11.83h-3.02v-11.83h-4.32v-2.55h11.65Z"
-          />
-          <path
-            d="M122.08,50.45c-2.06,0-3.63-.56-4.71-1.68-1.46-1.37-2.19-3.35-2.19-5.93s.73-4.61,2.19-5.93c1.09-1.12,2.66-1.68,4.71-1.68s3.63,.56,4.71,1.68c1.45,1.32,2.18,3.3,2.18,5.93s-.73,4.56-2.18,5.93c-1.09,1.12-2.66,1.68-4.71,1.68Zm2.84-3.86c.7-.88,1.04-2.13,1.04-3.75s-.35-2.86-1.05-3.74-1.64-1.32-2.83-1.32-2.14,.44-2.85,1.32-1.06,2.13-1.06,3.75,.35,2.87,1.06,3.75,1.66,1.32,2.85,1.32,2.14-.44,2.84-1.32Z"
-          />
-          <polygon
-            points="58.25 .15 54.85 .15 49.72 14.53 52.86 14.53 53.86 11.58 54.72 8.94 54.72 8.94 56.52 3.44 58.32 9.1 59.16 11.58 60.08 14.53 63.34 14.53 58.25 .15"
-          />
-          <polygon
-            points="58.8 35.52 55.41 35.52 50.28 49.9 53.42 49.9 54.41 46.94 55.27 44.3 55.28 44.3 57.08 38.81 58.87 44.46 59.71 46.94 60.64 49.9 63.9 49.9 58.8 35.52"
-          />
-          <polygon
-            points="58.25 18.47 54.85 18.47 49.72 32.85 52.86 32.85 53.86 29.89 54.72 27.25 54.72 27.25 56.52 21.76 58.32 27.41 59.16 29.89 60.08 32.85 63.34 32.85 58.25 18.47"
-          />
-        </svg>
-      </a>
-    </div>
-    <p class="">Hi! I'm Yuka!<br />I'm a Front-end developer.</p>
-  </div>
-  <section>
-    <div #container id="Canvascontainer" class="Canvascontainer">
-      <canvas #myCanvas id="myCanvas"></canvas>
-      <div class="nav">
-        <ul class="row">
-          <li #projects class="col-sm-12 col-md-6 projects">
-            <a class="links" href="#">PROJECTS</a>
-          </li>
-          <li #about class="col-sm-12 col-md-6 about">
-            <a class="links" >ABOUT</a>
-          </li>
-        </ul>
+<!-- Home Header -->
+<div #homeContainer class="homeContainer">
+  <div class="frame">
+    <header>
+      <div class="language">
+        <button aria-label="English">EN</button>
+        <button aria-label="Japanese">JP</button>
       </div>
-    </div>
-  </section>
-</header>
-<p #desc class="desc">Be active.<br />Be curious.<br />Be human.</p>
-<div #slider class="slider"></div>
-<footer #footer class="row">
-  <p #contact class="col-12 contact">
-    <a href="mailto:yukayamamoto0820.com">CONTACT</a>
-  </p>
-  <small class="col-12">&copy;Yuka Yamamoto. 2022.</small>
-</footer>
+      <div #headline class="headline">
+        <div #logo id="logo">
+          <a routerLink="">
+            <img src="../../assets/logo.svg" alt="" />
+          </a>
+        </div>
+        <div class="bio">
+          <h1>YUKA YAMAMOTO</h1>
+          <h1>Full-Stack Web Developer</h1>
+          <div class="bio-summary">
+            <p>Hi There. My name is Yuka Yamamoto.</p>
+            <p>
+              I'm looking for a full-time position as a Junior Full-Stack Web
+              Developer in Canada. I would like to help to make your experience
+              wonderful.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main -->
+    <main>
+      <div #container id="Canvascontainer" class="Canvascontainer">
+        <canvas #myCanvas id="myCanvas"></canvas>
+          <ul class="row">
+            <li #projects class="col-sm-12 col-md-6 projects">
+              <a class="links" href="#">PROJECTS</a>
+            </li>
+            <li #about class="col-sm-12 col-md-6 about">
+              <a class="links">ABOUT</a>
+            </li>
+          </ul>
+        </div>
+    </main>
+    <p #desc class="desc">Be active.<br />Be curious.<br />Be human.</p>
+    <div #slider class="slider"></div>
+    
+    <!-- Home Footer -->
+    <footer #footer>
+      <ul #contact class=" contact">
+        <li ><a href="mailto:yukayamamoto0820@gmail.com">Email</a></li>
+        <li ><a href="https://www.linkedin.com/in/yuka-yamamoto-7a422421b/">LinkedIn</a></li>
+        <li ><a href="https://github.com/yamamoto-yuka?tab=repositories">Github</a></li>
+      </ul>
+      <small>&copy;Yuka Yamamoto. 2022.</small>
+    </footer>
+  </div>
+</div>

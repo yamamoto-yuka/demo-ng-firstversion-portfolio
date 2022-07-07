@@ -1,6 +1,9 @@
 <!-- Home Header -->
+<p #desc class="desc">Be active.<br />Be curious.<br />Be human.</p>
+<div #slider class="slider"></div>
+
 <div #homeContainer class="homeContainer">
-  <div class="frame">
+  <!-- <div class="frame"> -->
     <header>
       <div class="language">
         <button aria-label="English">EN</button>
@@ -27,7 +30,7 @@
       </div>
     </header>
     <!-- Main -->
-    <main>
+    <main #main>
       <div #container id="Canvascontainer" class="Canvascontainer">
         <canvas #myCanvas id="myCanvas"></canvas>
           <ul class="row">
@@ -40,9 +43,7 @@
           </ul>
         </div>
     </main>
-    <p #desc class="desc">Be active.<br />Be curious.<br />Be human.</p>
-    <div #slider class="slider"></div>
-    
+
     <!-- Home Footer -->
     <footer #footer>
       <ul #contact class=" contact">
@@ -53,4 +54,4 @@
       <small>&copy;Yuka Yamamoto. 2022.</small>
     </footer>
   </div>
-</div>
+<!-- </div> -->

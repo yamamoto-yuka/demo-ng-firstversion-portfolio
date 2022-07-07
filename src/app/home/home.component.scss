@@ -3,40 +3,47 @@
 $black: #0d0d0d;
 $bg: #d9d9d9;
 
-
 .homeContainer {
-  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding:  1rem 0.5rem;
   background: $bg;
 }
 
-.frame {
+// .frame {
+//   position: relative;
+// }
+// .frame::before,
+// .frame::after {
+//   content: "";
+//   width: 100px;
+//   height: 100px;
+//   position: absolute;
+//   display: inline-block;
+// }
+// .frame::before {
+//   border-left: solid 0.75px $black;
+//   border-top: solid 0.75px $black;
+//   top: 0;
+//   left: 0;
+// }
+// .frame::after {
+//   border-right: solid 0.75px $black;
+//   border-bottom: solid 0.75px $black;
+//   bottom: 0;
+//   right: 0;
+// }
+
+header{
+  flex-grow: 0;
   position: relative;
-}
-.frame::before,
-.frame::after {
-  content: "";
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  display: inline-block;
-}
-.frame::before {
-  border-left: solid 0.75px $black;
-  border-top: solid 0.75px $black;
-  top: 0;
-  left: 0;
-}
-.frame::after {
-  border-right: solid 0.75px $black;
-  border-bottom: solid 0.75px $black;
-  bottom: 0;
-  right: 0;
 }
 
 .language {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5%;
+  right: 5%;
   button {
     border: none;
     background-color: transparent;
@@ -64,11 +71,10 @@ $bg: #d9d9d9;
 .headline {
   @include centerCenter($j: space-between);
   flex-direction: column;
-  min-height: 45vh;
-  padding: 2rem 0;
+  padding: 3rem 0 2rem 0;
   color: $black;
   #logo {
-    width: 35%;
+    width: 100px;
     img {
       height: 100%;
       width: 100%;
@@ -91,55 +97,59 @@ $bg: #d9d9d9;
   }
 }
 
-main{
-  height: 60vh;
-.Canvascontainer {
+main {
+  flex-grow: 1;
   height: 100%;
   width: 100%;
-  position: relative;
-  overflow: hidden;
-  #myCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  .Canvascontainer {
     height: 100%;
-    box-shadow: 0px 6px 14px 0px rgb(0 0 0 / 42%);
+    width: 80%;
+    position: relative;
+    overflow: hidden;
+    #myCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0px 6px 14px 0px rgb(0 0 0 / 42%);
+    }
+    ul {
+      cursor: pointer;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 3rem;
+      li:first-child {
+        padding-bottom: 3rem;
+      }
+      a {
+        font-family: "Sora", sans-serif;
+        color: #fff;
+      }
+      a:hover,
+      a:active {
+        @include catHoverActive();
+      }
+      a:after,
+      a:before {
+        @include catAfterBefore();
+      }
+      a:hover:after,
+      a:hover:before {
+        @include catHoverAfterBefore();
+      }
+      a:hover:before {
+        @include catHoverBefore();
+      }
+    }
   }
-  ul {
-    cursor: pointer;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: 3rem;
-    li:first-child{
-      padding-bottom: 3rem;
-    }
-    a {
-      font-family: "Sora", sans-serif;
-      color: #fff;
-    }
-    a:hover,
-    a:active {
-      @include catHoverActive();
-    }
-    a:after,
-    a:before {
-      @include catAfterBefore();
-    }
-    a:hover:after,
-    a:hover:before {
-      @include catHoverAfterBefore();
-    }
-    a:hover:before {
-      @include catHoverBefore();
-    }
-  }
-}
 }
 
 .desc {
@@ -158,13 +168,14 @@ main{
   height: 100%;
   background: $black;
   opacity: 0;
+  z-index: 5;
 }
 
 footer {
-  padding: 2rem 0;
+  flex-grow: 0;
+  padding-top: 2rem;
   .contact {
     @include centerCenter();
-    padding: 7rem 0 1rem 0;
     li {
       margin: 0 1rem 1rem 0;
       a {
@@ -198,24 +209,8 @@ small {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  .headline {
-    min-height: 40vh;
-    #logo {
-      width: 25%;
-    }
-  }
   .desc {
     font-size: 50px;
-  }
-
-  .Canvascontainer {
-    height: 50vh;
-  }
-
-  footer {
-    .contact {
-      padding: 4rem 0 1rem 0;
-    }
   }
 }
 

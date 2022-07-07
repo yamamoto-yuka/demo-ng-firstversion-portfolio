@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit {
         this.container.nativeElement,
         1.7,
         { width: '0%' },
-        { width: '100%', ease: Power2.easeInOut }
+        { width: '80%', ease: Power2.easeInOut }
       )
       .fromTo(
         this.logo.nativeElement,
@@ -211,14 +211,14 @@ export class HomeComponent implements OnInit {
     .fromTo(
       this.container.nativeElement,
       1,
-      { position: 'relative', height:'70%' },
-      { position: 'absolute', top:0, height: '100vh',  ease: Power2.easeOut }
+      { position: 'relative', height:'90%' },
+      { position: 'absolute', top:0, height: '100%',  ease: Power2.easeInOut }
     )
       .fromTo(
         this.container.nativeElement,
        1,
-       { position: 'relative', widows:'90%' },
-        { position: 'absolute', width: '100%', ease: Power2.easeOut }
+       { position: 'relative', widows:'80%' },
+        { position: 'absolute', width: '100%', ease: Power2.easeInOut }
       )       
      
   }

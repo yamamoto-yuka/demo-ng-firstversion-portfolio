@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { gsap } from 'gsap';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
@@ -19,30 +14,30 @@ export class HomeComponent implements OnInit {
   // For Timeline Animation
   @ViewChild('headline', { static: true }) headline: ElementRef<HTMLDivElement>;
   @ViewChild('logo', { static: true }) logo: ElementRef<HTMLDivElement>;
-  @ViewChild('container', { static: true }) container: ElementRef<HTMLDivElement>;
+  @ViewChild('container', { static: true })
+  container: ElementRef<HTMLDivElement>;
   @ViewChild('projects', { static: true }) projects: ElementRef<HTMLDivElement>;
   @ViewChild('about', { static: true }) about: ElementRef<HTMLDivElement>;
   @ViewChild('contact', { static: true }) contact: ElementRef<HTMLDivElement>;
   @ViewChild('footer', { static: true }) footer: ElementRef<HTMLDivElement>;
   @ViewChild('desc', { static: true }) desc: ElementRef<HTMLDivElement>;
-  @ViewChild('slider', {static:true}) slider:ElementRef<HTMLDivElement>;
+  @ViewChild('slider', { static: true }) slider: ElementRef<HTMLDivElement>;
 
   // For 3D Bg
-  @ViewChild('myCanvas', {static:true}) myCanvas: ElementRef<HTMLDivElement>;
+  @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
 
-
-  constructor(private router:Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     const clock = new THREE.Clock();
     let controls: FlyControls;
 
-    
     const scene = new THREE.Scene();
     // CAMERA
     const camera = new THREE.PerspectiveCamera(
       50,
-      this.container.nativeElement.clientWidth / this.container.nativeElement.clientHeight,
+      this.container.nativeElement.clientWidth /
+        this.container.nativeElement.clientHeight,
       1,
       15000
     );
@@ -51,7 +46,10 @@ export class HomeComponent implements OnInit {
       canvas: this.myCanvas.nativeElement,
       antialias: true,
     });
-    renderer.setSize(this.container.nativeElement.clientWidth, this.container.nativeElement.clientHeight);
+    renderer.setSize(
+      this.container.nativeElement.clientWidth,
+      this.container.nativeElement.clientHeight
+    );
 
     createStarField();
 
@@ -82,7 +80,6 @@ export class HomeComponent implements OnInit {
     controls.movementSpeed = 1800;
     controls.rollSpeed = Math.PI / 30;
 
-
     animate();
 
     function onWindowResize() {
@@ -100,31 +97,28 @@ export class HomeComponent implements OnInit {
 
     window.addEventListener('resize', onWindowResize);
     this.timelineAnimation();
-  
-   let navigateToAbout = () =>{
+
+    let navigateToAbout = () => {
       this.router.navigate(['about']);
-    }
+    };
 
-    let navigateToProjects = () =>{
+    let navigateToProjects = () => {
       this.router.navigate(['projects']);
-    }
+    };
 
-    this.about.nativeElement.addEventListener('click', ()=>{
-        this.wideScreen();
-        onWindowResize();
-        this.wipeTransitionLeft();
-        setTimeout(navigateToAbout, 4500);
-    })
+    this.about.nativeElement.addEventListener('click', () => {
+      this.wideScreen();
+      onWindowResize();
+      this.wipeTransitionLeft();
+      setTimeout(navigateToAbout, 4500);
+    });
 
-    this.projects.nativeElement.addEventListener('click', ()=>{
+    this.projects.nativeElement.addEventListener('click', () => {
       this.wideScreen();
       onWindowResize();
       this.wipeTransitionRight();
       setTimeout(navigateToProjects, 4500);
-  })
-
-
-
+    });
   }
 
   // TIME LINE ANIMATION
@@ -134,13 +128,13 @@ export class HomeComponent implements OnInit {
       this.container.nativeElement,
       1.5,
       { height: '0%' },
-      { height: '100%', ease: Power2.easeInOut }
+      { height: '90%', ease: Power2.easeInOut }
     )
       .fromTo(
         this.container.nativeElement,
         1.7,
         { width: '0%' },
-        { width: '80%', ease: Power2.easeInOut }
+        { width: '100%', ease: Power2.easeInOut }
       )
       .fromTo(
         this.logo.nativeElement,
@@ -200,79 +194,68 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  wideScreen(){
+  wideScreen() {
     const tl = gsap.timeline();
-    tl.fromTo(
-      this.contact.nativeElement,
-      1,
-      { opacity:1 },
-      { opacity:0}
-    )
-    .fromTo(
-      this.container.nativeElement,
-      1,
-      { position: 'relative', height:'90%' },
-      { position: 'absolute', top:0, height: '100%',  ease: Power2.easeInOut }
-    )
+    tl.fromTo(this.contact.nativeElement, 1, { opacity: 1 }, { opacity: 0 })
       .fromTo(
         this.container.nativeElement,
-       1,
-       { position: 'relative', widows:'80%' },
+        1,
+        { position: 'relative', height: '90%' },
+        { position: 'absolute', top: 0, height: '100%', ease: Power2.easeInOut }
+      )
+      .fromTo(
+        this.container.nativeElement,
+        1,
+        { position: 'relative', widows: '100%' },
         { position: 'absolute', width: '100%', ease: Power2.easeInOut }
-      )       
-     
+      );
   }
 
-  wipeTransitionLeft(){
+  wipeTransitionLeft() {
     const tl = gsap.timeline();
     tl.fromTo(
       this.slider.nativeElement,
-     3.5,
-     { opacity:1, left:0, width:'0%' },
-     {  width: '100%', ease: Power2.easeIn },
+      4.5,
+      { opacity: 1, left: 0, width: '0%' },
+      { width: '100%', ease: Power2.easeInOut }
     )
-    .fromTo(
-      this.projects.nativeElement,
-      3.5,
-      { opacity:1},
-      { opacity:0, ease: Power2.easeInOut},
-      '-=3.5'
-    )
-    .fromTo(
-      this.about.nativeElement,
-      3.5,
-      { opacity:1},
-      { opacity:0, ease: Power2.easeOut
-      },
-      '-=1'
-    )
+      .fromTo(
+        this.projects.nativeElement,
+        3.5,
+        { opacity: 1 },
+        { opacity: 0, ease: Power2.easeInOut },
+        '-=3.5'
+      )
+      .fromTo(
+        this.about.nativeElement,
+        3.5,
+        { opacity: 1 },
+        { opacity: 0, ease: Power2.easeOut },
+        '-=1'
+      );
   }
 
-
-  wipeTransitionRight(){
+  wipeTransitionRight() {
     const tl = gsap.timeline();
     tl.fromTo(
       this.slider.nativeElement,
-     3.5,
-     { opacity:1, right:0, width:'0%'},
-     { width: '100%', ease: Power2.easeIn },
+      4.5,
+      { opacity: 1, right: 0, width: '0%' },
+      { width: '100%', ease: Power2.easeInOut }
     )
-    .fromTo(
-      this.about.nativeElement,
-      3.5,
-      { opacity:1},
-      { opacity:0, ease: Power2.easeInOut},
-      '-=3.5'
-    )
-    .fromTo(
-      this.projects.nativeElement,
-      3.5,
-      { opacity:1},
-      { opacity:0, ease: Power2.easeOut
-      },
-      '-=1'
-    )
+      .fromTo(
+        this.about.nativeElement,
+        3.5,
+        { opacity: 1 },
+        { opacity: 0, ease: Power2.easeInOut },
+        '-=3.5'
+      )
+      .fromTo(
+        this.projects.nativeElement,
+        3.5,
+        { opacity: 1 },
+        { opacity: 0, ease: Power2.easeOut },
+        '-=1'
+      );
   }
 }
-
-

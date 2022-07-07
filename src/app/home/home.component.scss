@@ -262,3 +262,42 @@ small {
   
 
 }
+
+@media screen and (min-width: 1920px) {
+  .homeContainer {
+    padding: 2rem 8.5rem;
+  }
+  
+  .desc {
+    font-size: 65px;
+  }
+  .headline {
+    padding: 5rem 0 5rem 0;
+    #logo {
+      width: 10%;
+
+    }
+    .bio {
+      width: 90%;
+    }
+  }
+
+  main {
+    .Canvascontainer {
+      ul {
+        font-size: 4.5rem;
+      }
+    }
+  }
+
+  footer {
+    .contact {
+      li{
+        margin: 0 1.5rem 0 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+}
+

@@ -9,7 +9,26 @@
   }
 }
 
-main{
+
+$black: #0d0d0d;
+$bg: #d9d9d9;
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  background-color: #0d0d0d;
+  padding: 1rem 1.5rem;
+  background: $bg;
+}
+
+app-header{
+  flex-grow: 0;
+}
+
+main{
+  flex-grow: 1;
+}
+
+footer{
+  flex-grow: 0;
 }

@@ -9,6 +9,7 @@ import { SpaceComponent } from './space/space.component';
 import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AboutComponent } from './about/about.component';
     SpaceComponent,
     HeaderComponent,
     ProjectsComponent,
-    AboutComponent
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

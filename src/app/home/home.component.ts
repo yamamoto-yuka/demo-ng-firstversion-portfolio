@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
       this.container.nativeElement,
       1.5,
       { height: '0%' },
-      { height: '90%', ease: Power2.easeInOut }
+      { height: '70%', ease: Power2.easeInOut }
     )
       .fromTo(
         this.container.nativeElement,

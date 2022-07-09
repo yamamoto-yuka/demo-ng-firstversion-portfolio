@@ -103,6 +103,7 @@ nav {
 
 nav.active {
   transform: translateX(0);
+  background-color: $bg;
 }
 
 .hamburger.active {

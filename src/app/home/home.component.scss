@@ -7,7 +7,7 @@ $bg: #d9d9d9;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   background: $bg;
 }
 
@@ -42,8 +42,8 @@ header {
 
 .language {
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 0;
+  right: 0;
   button {
     border: none;
     background-color: transparent;
@@ -71,7 +71,6 @@ header {
 .headline {
   @include centerCenter($j: space-between);
   flex-direction: column;
-  padding: 3rem 0 3rem 0;
   color: $black;
   #logo {
     width: 100px;
@@ -81,14 +80,13 @@ header {
     }
   }
   .bio {
-    width: 70%;
-    padding-top: 5rem;
+    padding-top: 2.5rem;
     h1 {
       font-size: 1rem;
       font-weight: bold;
     }
     .bio-summary {
-      padding-top: 2rem;
+      padding-top: .5rem;
       p {
         font-size: 0.8rem;
         font-weight: 200;
@@ -127,7 +125,7 @@ main {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       li:first-child {
         padding-bottom: 3rem;
       }
@@ -175,7 +173,6 @@ main {
 
 footer {
   flex-grow: 0;
-  padding-top: 2rem;
   .contact {
     @include centerCenter();
     li {
@@ -211,6 +208,11 @@ small {
 }
 
 @media screen and (min-width: 768px)  {
+
+  .homeContainer {
+    padding: 3.5rem 1.5rem;
+  }
+  
   .desc {
     font-size: 50px;
   }
@@ -248,7 +250,7 @@ small {
 
 @media screen and (min-width: 1024px) {
   .homeContainer {
-    padding: 1rem 4.5rem;
+    padding: 3.5rem 4.5rem 1rem 4.5rem;
   }
   
   .desc {
@@ -268,7 +270,7 @@ small {
 
 @media screen and (min-width: 1920px) {
   .homeContainer {
-    padding: 2rem 8.5rem;
+    padding: 3.5rem 8.5rem 1rem 8.5rem;
   }
   
   .desc {

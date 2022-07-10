@@ -18,11 +18,16 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   @ViewChildren('imgWrap', { read: ElementRef }) images: QueryList<ElementRef>;
 
   // Category
-  isCategoryActive: boolean = false;
-  active: boolean = true;
-  inActive: boolean = false;
+  isSmCategoryActive: boolean = false;
+  smBtnShow: boolean = true;
+  smBtnClose: boolean = false;
+  // ActiveCategory
+  activeAll: boolean = true;
+  activeCaseStudy: boolean = false;
+  activeDevelopment: boolean = false;
+  activeOther: boolean = false;
 
-  projects:any[] = [
+  projects: any[] = [
     {
       title: 'Development',
       category: 'development',
@@ -39,7 +44,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         { skill: 'Figma' },
       ],
       img: '../../assets/projects/miki.jpg',
-      display:true
+      display: true,
     },
     {
       title: 'Casestudy',
@@ -57,7 +62,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         { skill: 'Figma' },
       ],
       img: '../../assets/projects/miki.jpg',
-      display:true
+      display: true,
     },
     {
       title: 'Other',
@@ -75,52 +80,56 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         { skill: 'Figma' },
       ],
       img: '../../assets/projects/miki.jpg',
-      display:true
-    }
-  ]
+      display: true,
+    },
+  ];
+
 
   constructor() {}
 
   categoryBtn() {
-    this.isCategoryActive = !this.isCategoryActive;
-    this.active = !this.active;
-    this.inActive = !this.inActive;
+    this.isSmCategoryActive = !this.isSmCategoryActive;
+    this.smBtnShow = !this.smBtnShow;
+    this.smBtnClose = !this.smBtnClose;
   }
 
-  categoryFilter(filter:string){
+  categoryFilter(filter: string) {
     this.projects.filter((value, index) => {
-      if( value.category === filter){
-         value.display = true;
-      }else{
-          value.display = false;
-      }
-     });
-  }
-
-  allList(){
-    this.projects.filter((value, index) => {
+      if (value.category === filter) {
         value.display = true;
-     });
+      } else {
+        value.display = false;
+      }
+    });
   }
 
-  developmentList(){
+  allList() {
+    this.projects.filter((value, index) => {
+      value.display = true;
+    });
+    this.activeAll = true;
+    this.activeDevelopment = this.activeCaseStudy = this.activeOther = false;
+  }
+
+  developmentList() {
     this.categoryFilter('development');
+    this.activeDevelopment = true;
+    this.activeAll = this.activeCaseStudy = this.activeOther = false;
   }
 
-  caseStudytList(){
+  caseStudytList() {
     this.categoryFilter('casestudy');
+    this.activeCaseStudy = true;
+    this.activeAll = this.activeDevelopment = this.activeOther = false;
   }
 
-  othertList(){
+  othertList() {
     this.categoryFilter('other');
+    this.activeOther = true;
+    this.activeAll = this.activeDevelopment = this.activeCaseStudy = false;
   }
 
-
- 
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {}
 }

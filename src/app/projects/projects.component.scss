@@ -39,10 +39,18 @@ app-header {
   left: 50%;
   transform: translate(-50%, -50%);
   li {
+    cursor: pointer;
     font-size: 2rem;
     font-weight: bold;
     font-family: "Sora", sans-serif;
   }
+  li:hover, li:active{
+    color: white;
+  }
+}
+
+li.active{
+  color: white;
 }
 
 .categories-inner.active {
@@ -53,8 +61,6 @@ app-header {
 .categories-wrap.active {
   display: block;
 }
-
-
 
 .categories-btn {
   position: fixed;
@@ -76,6 +82,7 @@ main {
 }
 
 section.active{
+  opacity: 1;
   display: flex;
 }
 
@@ -87,7 +94,9 @@ section {
   z-index: 1;
   flex-direction: column-reverse;
   justify-content: center;
+  opacity: 0;
   display: none;
+  transition: all 1s ease-in-out;
 }
 
 .img-wrap {

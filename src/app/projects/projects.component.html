@@ -1,87 +1,61 @@
 <div class="projectsContainer">
   <app-header [projectsActive]="true"></app-header>
+
+
   <main>
-    <div class="categories-btn">
-      <button>categories</button>
-    </div>
-    <div class="categories">
-      <p>categories</p>
-      <ul>
-        <li>ALL PROJECTS</li>
-        <li>DEVELOPMENT</li>
-        <li>CASE STUDY</li>
-        <li>OTHERS</li>
-      </ul>
-      <p class="close-btn">close</p>
-    </div>
 
-    <section>
-      <div class="headline-wrap">
-        <h2>美稀 Miki</h2>
 
-        <div class="description-wrap">
-          <div class="desctiption">
-            <p>ROLES</p>
-            <ul>
-              <li>Branding</li>
-              <li>Design</li>
-              <li>Development</li>
-              <li>Management</li>
-            </ul>
-          </div>
-
-          <div class="desctiption">
-            <p>SKILL</p>
-            <ul>
-              <li>Angular</li>
-              <li>Strapi</li>
-              <li>Illustrator</li>
-              <li>Figma</li>
-            </ul>
-          </div>
-        </div>
+    <div  class="categories">
+      <div [class.active]="isCategoryActive" class="categories-inner">
+      <div class="categories-items">
+        <p>categories</p>
+        <ul>
+          <li>ALL PROJECTS</li>
+          <li>DEVELOPMENT</li>
+          <li>CASE STUDY</li>
+          <li>OTHERS</li>
+        </ul>
+      </div>
       </div>
 
-      <div class="img-wrap">
-        <img src="../../assets/projects/miki.jpg" alt="" />
-      </div>
-    </section>
 
+    <div *ngIf="active; else inActive">
+      <button  (click)="categoryBtn()" class="categories-btn">categories</button>
+    </div>
+    <ng-template #inActive>
+      <button (click)="categoryBtn()" class="categories-btn">close</button>
+    </ng-template>
+ 
+    
+  </div>
   
-
-
-    <section>
+    <section #section *ngFor="let project of projects">
       <div class="headline-wrap">
-        <h2>美稀 Miki</h2>
+        <h2>{{ project.title }}</h2>
 
         <div class="description-wrap">
           <div class="desctiption">
             <p>ROLES</p>
-            <ul>
-              <li>Branding</li>
-              <li>Design</li>
-              <li>Development</li>
-              <li>Management</li>
+            <ul *ngFor="let roles of project.roles">
+              <li>{{ roles.role }}</li>
             </ul>
           </div>
 
           <div class="desctiption">
             <p>SKILL</p>
-            <ul>
-              <li>Angular</li>
-              <li>Strapi</li>
-              <li>Illustrator</li>
-              <li>Figma</li>
+            <ul *ngFor="let skills of project.skills">
+              <li>{{ skills.skill }}</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="img-wrap">
-        <img src="../../assets/projects/miki.jpg" alt="" />
+      <div #imgWrap class="img-wrap">
+        <a href="">
+          <img [src]="project.img" alt="" />
+        </a>
       </div>
     </section>
-
   </main>
 
   <app-footer></app-footer>

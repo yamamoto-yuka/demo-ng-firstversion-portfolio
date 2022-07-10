@@ -1,35 +1,35 @@
 <div class="projectsContainer">
   <app-header [projectsActive]="true"></app-header>
 
-
   <main>
-
-
-    <div  class="categories">
+    <div class="categories">
       <div [class.active]="isCategoryActive" class="categories-inner">
-      <div class="categories-items">
-        <p>categories</p>
-        <ul class="category-list">
-          <li (click)="allList()" >ALL PROJECTS</li>
-          <li  (click)="developmentList()"  >DEVELOPMENT</li>
-          <li  (click)="caseStudytList()">CASE STUDY</li>
-          <li (click)="othertList()" >OTHERS</li>
-        </ul>
-      </div>
+        <div class="categories-items">
+          <p>categories</p>
+          <ul class="category-list">
+            <li (click)="allList()">ALL PROJECTS</li>
+            <li (click)="developmentList()">DEVELOPMENT</li>
+            <li (click)="caseStudytList()">CASE STUDY</li>
+            <li (click)="othertList()">OTHERS</li>
+          </ul>
+        </div>
       </div>
 
-
-    <div *ngIf="active; else inActive">
-      <button  (click)="categoryBtn()" class="categories-btn">categories</button>
+      <div *ngIf="active; else inActive">
+        <button (click)="categoryBtn()" class="categories-btn">
+          categories
+        </button>
+      </div>
+      <ng-template #inActive>
+        <button (click)="categoryBtn()" class="categories-btn">close</button>
+      </ng-template>
     </div>
-    <ng-template #inActive>
-      <button (click)="categoryBtn()" class="categories-btn">close</button>
-    </ng-template>
- 
-    
-  </div>
-  
-    <section [class.active]="project.display" #section *ngFor="let project of projects;let i = index">
+
+    <section
+      [class.active]="project.display"
+      #section
+      *ngFor="let project of projects"
+    >
       <div class="headline-wrap">
         <h2>{{ project.title }}</h2>
 

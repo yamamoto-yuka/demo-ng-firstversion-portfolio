@@ -22,10 +22,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   active: boolean = true;
   inActive: boolean = false;
 
-  all: any = 'all';
-  casestudy: any = 'casestudy';
-  others: any = 'other';
-
   projects:any[] = [
     {
       title: 'Development',
@@ -91,31 +87,15 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.inActive = !this.inActive;
   }
 
-  // categoryList(event: any) {
-  //   // let value = event.target.getAttribute('data-filter');
-  //   const targetData = event.target.dataset.filter;
-  //   console.log('targetData',targetData);
-  //   // const targetItem = this.section.nativeElement.dataset['category'];
-  //   // console.log( targetItem );
-  //   const filterList = this.data.filter((value, index) => {
-  //    if(targetData === 'all' ){
-      
-  //    }else if(targetData === value.category){
-  //     console.log(value);
-  //     console.log('projects',this.projects);
-  //     console.log('data',this.data);
-  //    }else{
-  //     this.projects.splice(index, 1);
-  //    }
-  //   });
-  // }
-
-  // allList(){
-  //   this.data.filter((value, index) => {
-  //     this.projects.push(value);
-  //     console.log(value);
-  //    });
-  // }
+  categoryFilter(filter:string){
+    this.projects.filter((value, index) => {
+      if( value.category === filter){
+         value.display = true;
+      }else{
+          value.display = false;
+      }
+     });
+  }
 
   allList(){
     this.projects.filter((value, index) => {
@@ -124,52 +104,22 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   }
 
   developmentList(){
-    this.projects.filter((value, index) => {
-      if( value.category === 'development'){
-         value.display = true;
-      }else{
-          value.display = false;
-      }
-     });
+    this.categoryFilter('development');
   }
 
   caseStudytList(){
-    this.projects.filter((value, index) => {
-      if( value.category === 'casestudy'){
-         value.display = true;
-      }else{
-          value.display = false;
-      }
-     });
+    this.categoryFilter('casestudy');
   }
 
   othertList(){
-    this.projects.filter((value, index) => {
-      if( value.category === 'other'){
-         value.display = true;
-      }else{
-          value.display = false;
-      }
-     });
+    this.categoryFilter('other');
   }
 
-  // caseStudytList(){
-  //   console.log('clisk!')
-  //   this.data.filter((value, index) => {
-  //     if( value.category === 'casestudy'){
-  //        this.projects.push(value);
-  //     }else{
-  //        this.projects.splice(index, 1);
-  //        console.log(this.projects);
-  //        console.log(this.data);
-  //     }
-  //    });
-  // }
 
+ 
 
   ngOnInit(): void {
-    // console.log(this.data);
-    // console.log(this.projects[0].roles[0]);
+
   }
 
   ngAfterViewInit(): void {}

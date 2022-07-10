@@ -9,11 +9,11 @@
       <div [class.active]="isCategoryActive" class="categories-inner">
       <div class="categories-items">
         <p>categories</p>
-        <ul>
-          <li>ALL PROJECTS</li>
-          <li>DEVELOPMENT</li>
-          <li>CASE STUDY</li>
-          <li>OTHERS</li>
+        <ul class="category-list">
+          <li (click)="allList()" >ALL PROJECTS</li>
+          <li  (click)="developmentList()"  >DEVELOPMENT</li>
+          <li  (click)="caseStudytList()">CASE STUDY</li>
+          <li (click)="othertList()" >OTHERS</li>
         </ul>
       </div>
       </div>
@@ -29,7 +29,7 @@
     
   </div>
   
-    <section #section *ngFor="let project of projects">
+    <section [class.active]="project.display" #section *ngFor="let project of projects;let i = index">
       <div class="headline-wrap">
         <h2>{{ project.title }}</h2>
 

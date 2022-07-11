@@ -45,6 +45,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       ],
       img: '../../assets/projects/miki.jpg',
       display: true,
+      path:'/projects/miki'
     },
     {
       title: 'Casestudy',
@@ -81,6 +82,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       ],
       img: '../../assets/projects/miki.jpg',
       display: true,
+      path:'/projects/miki'
     },
   ];
 

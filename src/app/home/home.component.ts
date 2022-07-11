@@ -213,20 +213,20 @@ export class HomeComponent implements OnInit {
     const tl = gsap.timeline();
     tl.fromTo(
       this.slider.nativeElement,
-      4.5,
+      3,
       { opacity: 1, left: 0, width: '0%' },
       { width: '100%', ease: Power2.easeInOut }
     )
       .fromTo(
         this.projects.nativeElement,
-        3.5,
+        3,
         { opacity: 1 },
         { opacity: 0, ease: Power2.easeInOut },
-        '-=3.5'
+        '-=3'
       )
       .fromTo(
         this.about.nativeElement,
-        3.5,
+        3,
         { opacity: 1 },
         { opacity: 0, ease: Power2.easeOut },
         '-=1'
@@ -237,20 +237,20 @@ export class HomeComponent implements OnInit {
     const tl = gsap.timeline();
     tl.fromTo(
       this.slider.nativeElement,
-      4.5,
+      3,
       { opacity: 1, right: 0, width: '0%' },
       { width: '100%', ease: Power2.easeInOut }
     )
       .fromTo(
         this.about.nativeElement,
-        3.5,
+        3,
         { opacity: 1 },
         { opacity: 0, ease: Power2.easeInOut },
-        '-=3.5'
+        '-=3'
       )
       .fromTo(
         this.projects.nativeElement,
-        3.5,
+        3,
         { opacity: 1 },
         { opacity: 0, ease: Power2.easeOut },
         '-=1'

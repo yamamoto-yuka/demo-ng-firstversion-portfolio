@@ -1,7 +1,5 @@
 @import "../../styles.scss";
 
-$black: #0d0d0d;
-$bg: #d9d9d9;
 header {
   width: 100%;
   height: 10vh;
@@ -20,11 +18,8 @@ header {
     object-fit: contain;
   }
 }
-
 .header-inner {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  @include centerCenter($j:space-around);
   height: 100%;
   position: relative;
 }
@@ -53,6 +48,8 @@ nav {
     text-align: center;
     font-size: 1rem;
     margin-bottom: 20px;
+    transition: all 1s ease-in-out;
+    font-family: "Sora", sans-serif;
   }
   a:hover,
   a:active{
@@ -61,6 +58,7 @@ nav {
   a:after,
   a:before {
     @include catAfterBefore($border-color: $black);
+    transition: all 1s ease-in-out;
   }
   a:hover:after,
   a:hover:before {
@@ -139,7 +137,7 @@ nav.active {
     transform: initial;
     height: inherit;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 50%;
   }
 

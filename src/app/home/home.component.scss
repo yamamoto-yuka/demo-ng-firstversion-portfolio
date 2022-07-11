@@ -1,8 +1,5 @@
 @import "../../styles.scss";
 
-$black: #0d0d0d;
-$bg: #d9d9d9;
-
 .homeContainer {
   display: flex;
   flex-direction: column;
@@ -10,30 +7,6 @@ $bg: #d9d9d9;
   padding: 1.5rem;
   background: $bg;
 }
-
-// .frame {
-//   position: relative;
-// }
-// .frame::before,
-// .frame::after {
-//   content: "";
-//   width: 100px;
-//   height: 100px;
-//   position: absolute;
-//   display: inline-block;
-// }
-// .frame::before {
-//   border-left: solid 0.75px $black;
-//   border-top: solid 0.75px $black;
-//   top: 0;
-//   left: 0;
-// }
-// .frame::after {
-//   border-right: solid 0.75px $black;
-//   border-bottom: solid 0.75px $black;
-//   bottom: 0;
-//   right: 0;
-// }
 
 header {
   flex-grow: 0;
@@ -84,9 +57,10 @@ header {
     h1 {
       font-size: 1rem;
       font-weight: bold;
+      font-family: "Sora", sans-serif;
     }
     .bio-summary {
-      padding-top: .5rem;
+      padding-top: 0.5rem;
       p {
         font-size: 0.8rem;
         font-weight: 200;
@@ -107,7 +81,7 @@ main {
     width: 100%;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 7px 21px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 7px 21px 0px rgba(0, 0, 0, 0.55);
     #myCanvas {
       position: absolute;
       top: 0;
@@ -132,6 +106,7 @@ main {
       a {
         font-family: "Sora", sans-serif;
         color: #fff;
+        transition: all 1s ease-in-out;
       }
       a:hover,
       a:active {
@@ -140,6 +115,7 @@ main {
       a:after,
       a:before {
         @include catAfterBefore();
+        transition: all 1s ease-in-out;
       }
       a:hover:after,
       a:hover:before {
@@ -174,30 +150,27 @@ main {
 footer {
   flex-grow: 0;
   .contact {
-    @include centerCenter();
-    li {
-      margin: 0 1rem 1rem 0;
-      a {
-        color: $black;
+    @include centerCenter($j: flex-end);
+    ul {
+      @include centerCenter();
+      width: fit-content;
+      border-top: 1px solid $black;
+      border-bottom: 1px solid $black;
+      li {
+        font-size: .8rem;
+        font-weight: bold;
+        a {
+          color: $black;
+          transition: all 0.5s ease-in-out;
+        }
+        a:hover,
+        a:active {
+          color: white;
+        }
       }
-      a:hover,
-      a:active {
-        @include catHoverActive();
+      li:nth-child(2) {
+        margin: 0 1rem;
       }
-      a:after,
-      a:before {
-        @include catAfterBefore($border-color: $black);
-      }
-      a:hover:after,
-      a:hover:before {
-        @include catHoverAfterBefore($border-color: $black, $width: 100%);
-      }
-      a:hover:before {
-        @include catHoverBefore($width: 100%);
-      }
-    }
-    li:last-child {
-      margin-right: 0;
     }
   }
 }
@@ -207,12 +180,11 @@ small {
   @include centerCenter();
 }
 
-@media screen and (min-width: 768px)  {
-
+@media screen and (min-width: 768px) {
   .homeContainer {
     padding: 3.5rem 1.5rem;
   }
-  
+
   .desc {
     font-size: 50px;
   }
@@ -224,7 +196,7 @@ small {
     #logo {
       width: 15%;
       margin-right: 3rem;
-      padding-top: .2rem;
+      padding-top: 0.2rem;
     }
     .bio {
       width: 85%;
@@ -252,27 +224,23 @@ small {
   .homeContainer {
     padding: 3.5rem 4.5rem 1rem 4.5rem;
   }
-  
+
   .desc {
     font-size: 60px;
   }
-
-
 
   footer {
     .contact {
       justify-content: flex-end;
     }
   }
-  
-
 }
 
 @media screen and (min-width: 1920px) {
   .homeContainer {
     padding: 3.5rem 8.5rem 1rem 8.5rem;
   }
-  
+
   .desc {
     font-size: 65px;
   }
@@ -280,7 +248,6 @@ small {
     padding: 5rem 0 5rem 0;
     #logo {
       width: 10%;
-
     }
     .bio {
       width: 90%;
@@ -297,12 +264,10 @@ small {
 
   footer {
     .contact {
-      li{
+      li {
         margin: 0 1.5rem 0 0;
         font-size: 1.2rem;
       }
     }
   }
-
 }
-

@@ -8,8 +8,12 @@
           <p>categories</p>
           <ul class="category-list">
             <li (click)="allList()" [class.active]="activeAll">ALL PROJECTS</li>
-            <li (click)="developmentList()"[class.active]="activeDevelopment">DEVELOPMENT</li>
-            <li (click)="caseStudyList()" [class.active]="activeCaseStudy">CASE STUDY</li>
+            <li (click)="developmentList()" [class.active]="activeDevelopment">
+              DEVELOPMENT
+            </li>
+            <li (click)="caseStudyList()" [class.active]="activeCaseStudy">
+              CASE STUDY
+            </li>
             <li (click)="othersList()" [class.active]="activeOther">OTHERS</li>
           </ul>
         </div>
@@ -28,6 +32,7 @@
     <section
       *ngFor="let project of projects"
       [class.active]="project.display"
+      [routerLink]="project.path"
     >
       <div #headline class="headline-wrap">
         <h2>{{ project.title }}</h2>
@@ -50,9 +55,7 @@
       </div>
 
       <div #imgWrap class="img-wrap">
-        <a href="">
-          <img [src]="project.img" alt="" />
-        </a>
+        <img [src]="project.img" alt="" />
       </div>
     </section>
   </main>

@@ -14,8 +14,8 @@ import {
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
-  @ViewChild('section', { static: true }) section: ElementRef<HTMLDivElement>;
   @ViewChildren('imgWrap', { read: ElementRef }) images: QueryList<ElementRef>;
+  @ViewChildren('headline', {read:ElementRef}) headline: QueryList<ElementRef>;
 
   // Category
   isSmCategoryActive: boolean = false;
@@ -148,9 +148,15 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     // Intersection Observer
     let observer = new IntersectionObserver(setItemActive, options);
     console.log(this.images);
-    let imagesItems = this.images.forEach((item, index) => {
+    
+    this.images.forEach((item, index) => {
       console.log(item);
       observer.observe(item.nativeElement);
     });
+
+    this.headline.forEach((item, index)=>{
+      observer.observe(item.nativeElement);
+    })
+  
   }
 }

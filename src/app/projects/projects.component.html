@@ -26,11 +26,10 @@
     </div>
 
     <section
-      #section
       *ngFor="let project of projects"
       [class.active]="project.display"
     >
-      <div class="headline-wrap">
+      <div #headline class="headline-wrap">
         <h2>{{ project.title }}</h2>
 
         <div class="description-wrap">

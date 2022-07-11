@@ -23,6 +23,7 @@ app-header {
 }
 
 .categories-inner {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -38,6 +39,9 @@ app-header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  p{
+    color: white;
+  }
   li {
     cursor: pointer;
     font-size: 2rem;
@@ -54,6 +58,7 @@ li.active{
 }
 
 .categories-inner.active {
+  display: block;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.494);
 }
@@ -88,7 +93,7 @@ section.active{
 
 section {
   position: relative;
-  height: 80vh;
+  height: 70vh;
   width: 100%;
   overflow: hidden;
   z-index: 1;
@@ -136,12 +141,15 @@ img {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
   }
-  p {
-    font-size: 0.8rem;
-  }
   .description-wrap {
     @include centerCenter();
     padding-top: 1rem;
+    p,li {
+      font-size: 0.8rem;
+    }
+    p{
+      font-weight: bold;
+    }
     .desctiption:first-child {
       margin-right: 2rem;
     }
@@ -174,10 +182,11 @@ footer {
     height: initial;
     width: 100%;
     position: initial;
-    margin-bottom: 6.5rem;
   }
 
   .categories-inner {
+    display: flex;
+    justify-content: center;
     position: initial;
     height: initial;
     width: 100%;
@@ -185,9 +194,12 @@ footer {
   }
 
   .categories-items {
+    p{
+      color: $black;
+    }
     position: initial;
     transform: initial;
-    @include centerCenter();
+    display: flex;
     flex-direction: column;
   }
 
@@ -197,7 +209,7 @@ footer {
 
   section {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .img-wrap {

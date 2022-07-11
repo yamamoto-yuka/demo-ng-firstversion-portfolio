@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   // For Timeline Animation
   @ViewChild('headline', { static: true }) headline: ElementRef<HTMLDivElement>;
   @ViewChild('logo', { static: true }) logo: ElementRef<HTMLDivElement>;
-  @ViewChild('container', { static: true })container: ElementRef<HTMLDivElement>;
+  @ViewChild('container', { static: true }) container: ElementRef<HTMLDivElement>;
   @ViewChild('projects', { static: true }) projects: ElementRef<HTMLDivElement>;
   @ViewChild('about', { static: true }) about: ElementRef<HTMLDivElement>;
   @ViewChild('contact', { static: true }) contact: ElementRef<HTMLDivElement>;

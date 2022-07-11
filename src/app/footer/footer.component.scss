@@ -1,0 +1,33 @@
+@import "../../styles.scss";
+$black: #0d0d0d;
+footer {
+  height: 20vh;
+  @include centerCenter();
+  flex-direction: column;
+  ul {
+    width: fit-content;
+    display: flex;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    li {
+      margin-right: 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      a {
+        color: $black;
+      }
+      a:hover,
+      a:active {
+        color: white;
+      }
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+small {
+  margin-top: 2rem;
+  @include centerCenter();
+}

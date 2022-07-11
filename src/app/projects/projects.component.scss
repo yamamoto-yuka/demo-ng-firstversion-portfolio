@@ -103,7 +103,7 @@ section {
   width: 1px;
   height: 40%;
   overflow: hidden;
-  // opacity: 0;
+  opacity: 0;
 }
 
 .img-wrap.active {
@@ -201,7 +201,7 @@ footer {
   }
 
   .img-wrap {
-    width: 40%;
+    width: 1px;
     height: 40vh;
     overflow: hidden;
   }

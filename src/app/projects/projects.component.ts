@@ -84,7 +84,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     },
   ];
 
-
   constructor() {}
 
   categoryBtn() {
@@ -117,13 +116,13 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.activeAll = this.activeCaseStudy = this.activeOther = false;
   }
 
-  caseStudytList() {
+  caseStudyList() {
     this.categoryFilter('casestudy');
     this.activeCaseStudy = true;
     this.activeAll = this.activeDevelopment = this.activeOther = false;
   }
 
-  othertList() {
+  othersList() {
     this.categoryFilter('other');
     this.activeOther = true;
     this.activeAll = this.activeDevelopment = this.activeCaseStudy = false;
@@ -131,5 +130,27 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    let setItemActive = (entries: any) => {
+      console.log(entries);
+      entries.forEach((entry: any) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    };
+
+    let options = {};
+
+    // Intersection Observer
+    let observer = new IntersectionObserver(setItemActive, options);
+    console.log(this.images);
+    let imagesItems = this.images.forEach((item, index) => {
+      console.log(item);
+      observer.observe(item.nativeElement);
+    });
+  }
 }

@@ -9,8 +9,8 @@
           <ul class="category-list">
             <li (click)="allList()" [class.active]="activeAll">ALL PROJECTS</li>
             <li (click)="developmentList()"[class.active]="activeDevelopment">DEVELOPMENT</li>
-            <li (click)="caseStudytList()" [class.active]="activeCaseStudy">CASE STUDY</li>
-            <li (click)="othertList()" [class.active]="activeOther">OTHERS</li>
+            <li (click)="caseStudyList()" [class.active]="activeCaseStudy">CASE STUDY</li>
+            <li (click)="othersList()" [class.active]="activeOther">OTHERS</li>
           </ul>
         </div>
       </div>
@@ -26,9 +26,9 @@
     </div>
 
     <section
-      [class.active]="project.display"
       #section
       *ngFor="let project of projects"
+      [class.active]="project.display"
     >
       <div class="headline-wrap">
         <h2>{{ project.title }}</h2>

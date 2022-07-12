@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import * as THREE from 'three';
 import { FlyControls } from 'three/examples/jsm/controls/FlyControls';
 import { Router } from '@angular/router';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -24,9 +25,19 @@ export class HomeComponent implements OnInit {
   // For 3D Bg
   @ViewChild('myCanvas', { static: true }) myCanvas: ElementRef<HTMLDivElement>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cs:CommonService) {}
+
+
+  logo2 = '';
+  thubnail = '';
 
   ngOnInit(): void {
+    this.cs.getHomedata().subscribe(homeData =>{
+      console.log(homeData);
+      this.thubnail = 'http://localhost:1337' + homeData.data.attributes.bannerimage.data.attributes.formats.thubanil.url;
+
+    })
+
     const clock = new THREE.Clock();
     let controls: FlyControls;
 
@@ -117,6 +128,8 @@ export class HomeComponent implements OnInit {
       this.wipeTransitionRight();
       setTimeout(navigateToProjects, 4500);
     });
+
+ 
   }
 
   // TIME LINE ANIMATION

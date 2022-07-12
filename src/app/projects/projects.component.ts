@@ -16,6 +16,7 @@ import {
 export class ProjectsComponent implements OnInit, AfterViewInit {
   @ViewChildren('imgWrap', { read: ElementRef }) images: QueryList<ElementRef>;
   @ViewChildren('headline', {read:ElementRef}) headline: QueryList<ElementRef>;
+  @ViewChild('main', {static:true}) main:ElementRef<HTMLDivElement>;
 
   // Category
   isSmCategoryActive: boolean = false;
@@ -43,7 +44,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         { skill: 'Illustrator' },
         { skill: 'Figma' },
       ],
-      img: '../../assets/projects/miki.jpg',
+      img: '/assets/projects/miki.jpg',
       display: true,
       path:'/projects/miki'
     },
@@ -62,7 +63,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         { skill: 'Illustrator' },
         { skill: 'Figma' },
       ],
-      img: '../../assets/projects/miki.jpg',
+      img: '/assets/projects/miki.jpg',
       display: true,
     },
     {
@@ -80,7 +81,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         { skill: 'Illustrator' },
         { skill: 'Figma' },
       ],
-      img: '../../assets/projects/miki.jpg',
+      img: '/assets/projects/miki.jpg',
       display: true,
       path:'/projects/miki'
     },
@@ -130,7 +131,10 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.activeAll = this.activeDevelopment = this.activeCaseStudy = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  
+  }
 
   ngAfterViewInit(): void {
     let setItemActive = (entries: any) => {

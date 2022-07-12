@@ -1,7 +1,7 @@
 @import "../../styles.scss";
 
 footer {
-  height: 20vh;
+  height: 30vh;
   @include centerCenter($j:flex-end);
   flex-direction: column;
   background-color: $bg;
